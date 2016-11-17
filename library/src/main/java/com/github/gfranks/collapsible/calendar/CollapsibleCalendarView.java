@@ -497,7 +497,12 @@ public class CollapsibleCalendarView extends LinearLayout implements View.OnClic
             dayView.setSelected(day.isSelected(), mSelectedDayBackgroundColor, mSelectedDayTextColor, mDayTextColor);
             dayView.setCurrent(day.isCurrent());
             dayView.setHasEvent(mManager.dayHasEvent(day));
-            dayView.setEventIndicatorColor(mEventIndicatorColor);
+            List<CollapsibleCalendarEvent> events = mManager.getEventsForDate(day.getDate());
+            if (events.size() > 0) {
+                dayView.setEventIndicatorColor(events.get(0).getColor());
+            } else {
+                dayView.setEventIndicatorColor(mEventIndicatorColor);
+            }
 
             boolean enabled = day.isEnabled();
             dayView.setEnabled(enabled);

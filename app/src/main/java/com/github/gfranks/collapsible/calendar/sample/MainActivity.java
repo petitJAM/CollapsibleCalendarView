@@ -2,6 +2,8 @@ package com.github.gfranks.collapsible.calendar.sample;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -34,9 +36,12 @@ public class MainActivity extends Activity implements CollapsibleCalendarView.Li
     }
 
     private List<Event> getEvents() {
+        int eventPositiveColor = Color.rgb(0, 255, 0);
+        int eventNegativeColor = Color.rgb(255, 0, 0);
+
         List<Event> events = new ArrayList<>();
         for (int i=0; i<20; i++) {
-            events.add(new Event("Event " + (i+1), System.currentTimeMillis() + (86400000 * i)));
+            events.add(new Event("Event " + (i+1), System.currentTimeMillis() + (86400000 * i), eventPositiveColor, eventNegativeColor));
         }
         return events;
     }

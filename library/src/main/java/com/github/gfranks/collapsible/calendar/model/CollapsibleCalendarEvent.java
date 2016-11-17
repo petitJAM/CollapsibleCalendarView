@@ -9,6 +9,8 @@ public abstract class CollapsibleCalendarEvent {
 
     public abstract LocalDate getCollapsibleEventLocalDate();
 
+    public abstract int getColor();
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof CollapsibleCalendarEvent) {
